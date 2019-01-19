@@ -13,8 +13,8 @@ var burger = {
   },
 
   updateOne: function(burger_id, callback) {
-    var whichBurger = "id=" + burger_id;
-    orm.updateOne("burgers", { devoured : true }, whichBurger, callback);
+    var whichBurger = burger_id;
+    orm.updateOne(whichBurger, callback);
   },
 };
 

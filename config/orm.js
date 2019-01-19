@@ -14,8 +14,6 @@ var orm = {
   insertOne: function(burger_name, callback) {
     var queryString = "INSERT INTO burgers (burger_name) VALUES (?)";
 
-    console.log(queryString);
-
     connection.query(queryString, [burger_name], function(err, result) {
       if (err) {
         throw err;
@@ -26,10 +24,9 @@ var orm = {
   },
 
   updateOne: function(burger_id, callback) {
-    var queryString = "UPDATE burgers SET devoured=true WHERE id=?";
+    var queryString = "UPDATE burgers SET ? WHERE id=?";
 
-    console.log(queryString);
-    connection.query(queryString, [burger_id], function(err, result) {
+    connection.query(queryString, [{ devoured: true }, burger_id], function(err, result) {
       if (err) {
         throw err;
       }

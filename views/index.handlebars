@@ -7,9 +7,14 @@
             <ul>
                 {{#each burgers}}
                     {{#unless this.devoured}}
-                        <p>{{this.burger_name}}
-
-                        <button id={{this.id}} class="eat-burger">Eat da Burger!</button></p>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            {{this.burger_name}}
+                        </div>
+                        <div class="col-lg-3">
+                            <button id={{this.id}} class="eat-burger">Eat da Burger!</button>
+                        </div>
+                    </div>
                     {{/unless}}
                 {{/each}}
             </ul>
@@ -49,12 +54,10 @@
         event.preventDefault();
 
         var burger_id = $(this).attr("id");
-        console.log(burger_id);
 
         $.ajax({
             method: "PUT",
             url: "/burgers/" + burger_id,
-            data: burger_id
         }).then(function() {
             location.reload();
         });
