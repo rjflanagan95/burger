@@ -8,13 +8,14 @@
                 {{#each burgers}}
                     {{#unless this.devoured}}
                     <div class="row">
-                        <div class="col-lg-5">
+                        <div class="col-lg-4">
                             {{this.burger_name}}
                         </div>
-                        <div class="col-lg-3">
-                            <button id={{this.id}} class="eat-burger">Eat da Burger!</button>
+                        <div class="col-lg-4">
+                            <button type="button" id={{this.id}} class="eat-burger btn btn-light btn-sm">Eat da Burger!</button>
                         </div>
                     </div>
+                    <br>
                     {{/unless}}
                 {{/each}}
             </ul>
@@ -24,11 +25,16 @@
             <h2>Eaten Burgers</h2>
 
             <ul>
-            {{#each burgers}}
-                {{#if devoured}}
-                    <p>{{this.burger_name}}</p>
-                {{/if}}
-            {{/each}}
+                {{#each burgers}}
+                    {{#if this.devoured}}
+                    <div class="row">
+                        <div class="col-lg-4">
+                            {{this.burger_name}}
+                        </div>
+                    </div>
+                    <br>
+                    {{/if}}
+                {{/each}}
             </ul>
         </div>
     </div>
